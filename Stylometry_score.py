@@ -11,6 +11,8 @@ import spacy
 import math 
 from datasets import get_pair
 from collections import Counter
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
 
 # энтропия
 class StylometryScorer:
@@ -33,4 +35,4 @@ if source and target:
     res_source = scorer.get_entropy(source)
     res_target = scorer.get_entropy(target)
 
-print(f"Публицистика:{res_source}, \n Официальная: {res_target}, \n Разница: {round((((res_target - res_source)/res_source)*100), 2)}%")
+print(f"Публицистика:{res_source}, \n Официальная: {res_target}, \n Разница: {round((((res_target - res_source)/res_source)*100), 3)}%")
