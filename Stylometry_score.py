@@ -9,6 +9,7 @@
 # - Номинальность
 import spacy
 import math 
+from datasets import get_pair
 from collections import Counter
 
 # энтропия
@@ -24,6 +25,12 @@ class StylometryScorer:
         return -sum((c/total) * math.log(c/total, 2) for c in counts.values())
     
 scorer = StylometryScorer()
-public = scorer.get_entropy("Republicans are under pressure to give final approval to a deal between President Donald Trump and Senate Democrats that temporarily extends Department of Homeland Security funding for two weeks — alongside a broader, full-year spending deal — so the two parties can negotiate over Democrats’ demands to rein in Immigration and Customs Enforcement tactics.") 
-official = scorer.get_entropy("The Republican caucus is currently mandated to provide final ratification for a bilateral agreement reached between the Executive Branch and Senate Democrats, providing for a provisional fourteen-day extension of Department of Homeland Security (DHS) appropriations, concurrent with a comprehensive full-year fiscal expenditure framework.")
-print(f"Публицистика:{public}, \n Официальная: {official}, \n Разница: {round((((official - public)/public)*100), 2)}%")
+
+p_idx = input("Введите ID (например, CNN_0001): ")
+source, target = get_pair(p_idx)
+
+if source and target:
+    res_source = scorer.get_entropy(source)
+    res_target = scorer.get_entropy(target)
+
+print(f"Публицистика:{res_source}, \n Официальная: {res_target}, \n Разница: {round((((res_target - res_source)/res_source)*100), 2)}%")
