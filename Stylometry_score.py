@@ -27,12 +27,3 @@ class StylometryScorer:
         return -sum((c/total) * math.log(c/total, 2) for c in counts.values())
     
 scorer = StylometryScorer()
-
-p_idx = input("Введите ID (например, CNN_0001): ")
-source, target = get_pair(p_idx)
-
-if source and target:
-    res_source = scorer.get_entropy(source)
-    res_target = scorer.get_entropy(target)
-
-print(f"Публицистика:{res_source}, \n Официальная: {res_target}, \n Разница: {round((((res_target - res_source)/res_source)*100), 3)}%")
