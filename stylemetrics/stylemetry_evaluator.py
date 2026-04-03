@@ -42,4 +42,17 @@ class StylometryScorer:
         total_rank_sum = sum(ranks[word] * counts[word] for word in words)
         return total_rank_sum / len(words)
     
+    def passive_construct(self, text):
+        doc = self.nlp(text)
+        passive_count = 0
+
+        for token in doc:
+            match token.dep_:
+                case "auxpass":
+                    passive_count += 1
+
+        return passive_count
+
+
+    
 scorer = StylometryScorer()
