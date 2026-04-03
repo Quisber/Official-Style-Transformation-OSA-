@@ -9,7 +9,7 @@
 # - Номинальность
 import spacy
 import math 
-from datasets import get_pair
+from data.datasets import get_pair
 from collections import Counter
 import os
 import nltk
