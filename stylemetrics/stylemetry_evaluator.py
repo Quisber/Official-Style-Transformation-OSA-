@@ -83,3 +83,16 @@ class StylometryScorer:
                 total_sentences_count += 1
                 
         return total_complexity_sum / total_sentences_count if total_sentences_count > 0 else 0
+    
+    def get_nominality(self, docs):
+        noun_count = 0
+        verb_count = 0
+        
+        for doc in docs:
+            for token in doc:
+                if token.pos_ in ['NOUN', 'PROPN']:
+                    noun_count += 1
+                elif token.pos_ in ['VERB', 'AUX']:
+                    verb_count += 1
+                    
+        return noun_count / verb_count if verb_count > 0 else noun_count
