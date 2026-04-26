@@ -8,6 +8,7 @@
 # - Эмоциональность
 # - Номинальность
 import spacy
+from textblob import TextBlob
 import math 
 from data.datasets import get_pair
 from collections import Counter
@@ -96,3 +97,20 @@ class StylometryScorer:
                     verb_count += 1
                     
         return noun_count / verb_count if verb_count > 0 else noun_count
+
+    def get_expressiveness(self, docs):
+        total_intensity = 0 
+        total_subjectivity = 0
+        total_sentences = 0
+
+        for doc in docs:
+            blob = TextBlob(doc.text)
+            for sentence in blob.sentences:
+                total_intensity += abs(sentence.sentiment.polarity)
+                total_subjectivity += sentence.sentiment.subjectivity
+                total_sentences += 1
+
+        intensity = total_intensity / total_sentences
+        subjectivity = total_subjectivity / total_sentences
+        
+        return intensity, subjectivity
