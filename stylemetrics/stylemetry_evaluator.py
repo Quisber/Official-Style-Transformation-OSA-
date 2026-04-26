@@ -46,7 +46,7 @@ class StylometryScorer:
                         total_sum_ranks += (token.rank + 1)
                     else:
                         total_sum_ranks += default_rank
-                        
+
                     total_word_count += 1
             
         return total_sum_ranks / total_word_count if total_word_count > 0 else 0
@@ -63,34 +63,23 @@ class StylometryScorer:
         
         return (total_passive / total_words) * 1000
     
-    def get_tree_metrics(self, docs):
-        total_depth = 0
-        total_breadth = 0
-        total_length = 0
-        count = len(docs)
-
+    def get_syntax_tree(self, docs):
+        total_complexity_sum = 0
+        total_sentences_count = 0
+        
         for doc in docs:
-            # Для каждого предложения в документе (обычно в корпусе 1 предложение на строку)
             for sent in doc.sents:
-                total_length += len(sent)
+                length = len([t for t in sent if not t.is_punct])
+                width = len(list(sent.root.children))
                 
-                # Глубина дерева
                 def get_depth(node):
-                    if not list(node.children):
-                        return 1
+                    if not list(node.children): return 0
                     return 1 + max(get_depth(child) for child in node.children)
+                depth = get_depth(sent.root)
                 
-                # Ширина дерева (макс. количество прямых потомков)
-                def get_breadth(node):
-                    current_breadth = len(list(node.children))
-                    child_breadths = [get_breadth(child) for child in node.children]
-                    return max([current_breadth] + child_breadths) if child_breadths else current_breadth
-
-                total_depth += get_depth(sent.root)
-                total_breadth += get_breadth(sent.root)
-
-        return {
-            "avg_length": total_length / count if count > 0 else 0,
-            "avg_depth": total_depth / count if count > 0 else 0,
-            "avg_breadth": total_breadth / count if count > 0 else 0
-        }
+                sent_complexity = (length * 0.2) + (width * 0.3) + (depth * 0.5)
+                
+                total_complexity_sum += sent_complexity
+                total_sentences_count += 1
+                
+        return total_complexity_sum / total_sentences_count if total_sentences_count > 0 else 0
