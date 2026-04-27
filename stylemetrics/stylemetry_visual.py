@@ -102,7 +102,7 @@ if btn_start:
                 col1, col2, col3 = st.columns(3)
                 col1.metric("Энтропия", f"{ent_s:.2f}")
                 col2.metric("Ранговое среднее", f"{rank_s:.2f}")
-                col3.metric("Синтаксическая сложность по тексту", f"{syntax_s:.2f}")
+                col3.metric("Синтаксическая сложность", f"{syntax_s:.2f}")
             st.divider()
 
             with st.container():
