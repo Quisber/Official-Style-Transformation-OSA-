@@ -1,10 +1,6 @@
 # отдельный файл для визуального представления стилеметрического измерителя
 import streamlit as st
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from stylemetrics.stylemetry_evaluator import StylometryScorer
-from data.datasets import get_pair
 import streamlit as st
 import io
 

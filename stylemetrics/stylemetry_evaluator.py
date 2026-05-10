@@ -9,11 +9,8 @@
 # - Номинальность
 import spacy
 from textblob import TextBlob
-import math 
-from data.datasets import get_pair
+import math
 from collections import Counter
-import os
-os.system('cls' if os.name == 'nt' else 'clear')
 
 class StylometryScorer:
     def __init__(self, model="en_core_web_md"):
