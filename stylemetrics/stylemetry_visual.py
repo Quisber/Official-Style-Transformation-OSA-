@@ -1,6 +1,6 @@
 # отдельный файл для визуального представления стилеметрического измерителя
 import streamlit as st
-from stylemetrics.stylemetry_evaluator import StylometryScorer
+from stylemetry_evaluator import StylometryScorer
 import streamlit as st
 import io
 
@@ -85,7 +85,7 @@ if btn_start:
                     ("Сложность синтаксиса", syntax_s, syntax_t),
                     ("Пассив (на 1 тыс. слов)", pass_s, pass_t),
                     ("Номинальность", nomin_s, nomin_t),
-                    ("Объективность", subj_s, subj_t),
+                    ("Субъективность", subj_s, subj_t),
                     ("Эмоциональность", intense_s, intense_t)
                 ]
 

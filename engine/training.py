@@ -5,7 +5,7 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import load_dataset
 from trl import SFTTrainer
 
-model_id = "meta-llama/Meta-Llama-3.1-8B"
+model_id = "unsloth/meta-llama-3.1-8b-bnb-4bit"
 output_dir = "models/llama_official_style_lora"
 max_seq_length = 1024
 
