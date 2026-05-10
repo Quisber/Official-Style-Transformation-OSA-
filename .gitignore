@@ -3,3 +3,4 @@ models/*
 !models/Llama_model.py
 .vscode/
 .venv/
+unsloth_compiled_cache/
