@@ -4,3 +4,4 @@ models/*
 .vscode/
 .venv/
 unsloth_compiled_cache/
+checkpoints/
