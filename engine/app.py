@@ -62,7 +62,7 @@ if prompt:
 
         for i, segment in enumerate(segments):
             current_full_prompt = (
-                f"### Instruction:\nTransform to official style\n\n"
+                f"### Instruction:\nTransform\n\n"
                 f"### Input:\n{segment}\n\n### Response:\n"
             )
             

@@ -122,7 +122,6 @@ def objective(trial):
     
     current_score = evaluate_model(model, tokenizer, val_data)
     
-    # Очистка
     del model, tokenizer, trainer
     gc.collect()
     torch.cuda.empty_cache()
