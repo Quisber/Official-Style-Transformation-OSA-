@@ -28,7 +28,7 @@
 
 1. **Клонирование репозитория:**
    ```bash
-   git clone [https://github.com/Quisber/TST-TransformersBased.git](https://github.com/Quisber/TST-TransformersBased.git)
+   git clone https://github.com/Quisber/TST-TransformersBased.git
 
 2. **Установка библиотек и зависимостей (Python 3.11)**
    ```bash
