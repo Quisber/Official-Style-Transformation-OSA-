@@ -7,7 +7,9 @@ unsloth_compiled_cache/
 checkpoints/
 NLPmetrics/Original.txt
 NLPmetrics/OSA.txt
-NLPmetrics/Prompt_based.txt
-NLPmetrics/Simple_based.txt
-NLPmetrics/ISO.txt
+NLPmetrics/Few-shot.txt
+NLPmetrics/Zero-shot.txt
+NLPmetrics/Target.txt
+NLPmetrics/temporal.py
+BERTScore.csv
 
