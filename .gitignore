@@ -5,3 +5,9 @@ models/*
 .venv/
 unsloth_compiled_cache/
 checkpoints/
+NLPmetrics/Original.txt
+NLPmetrics/OSA.txt
+NLPmetrics/Prompt_based.txt
+NLPmetrics/Simple_based.txt
+NLPmetrics/ISO.txt
+
