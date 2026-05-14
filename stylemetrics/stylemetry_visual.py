@@ -80,10 +80,10 @@ if btn_start:
                     c4.metric("", "", delta=f"{diff:.1f}%", label_visibility="collapsed")
 
                 metrics = [
-                    ("Энтропия", ent_s, ent_t),
-                    ("Ранговое среднее", rank_s, rank_t),
-                    ("Сложность синтаксиса", syntax_s, syntax_t),
-                    ("Пассив (на 1 тыс. слов)", pass_s, pass_t),
+                    ("Непредсказуемость", ent_s, ent_t),
+                    ("Оценка сложности лексики", rank_s, rank_t),
+                    ("Синтаксическая сложность", syntax_s, syntax_t),
+                    ("Обезличенность", pass_s, pass_t),
                     ("Номинальность", nomin_s, nomin_t),
                     ("Субъективность", subj_s, subj_t),
                     ("Эмоциональность", intense_s, intense_t)
